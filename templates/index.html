@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Steganography Tool</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .container {
+            background: rgba(0,0,0,0.3);
+            padding: 30px;
+            border-radius: 15px;
+            width: 400px;
+            margin: auto;
+        }
+
+        input, textarea {
+            width: 90%;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 8px;
+            border: none;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 8px;
+            background: #00c6ff;
+            color: black;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #0072ff;
+            color: white;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #00ffcc;
+        }
+        .message {
+    transition: opacity 1s ease;
+}
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>🔐 Steganography Tool</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" required><br>
+
+        <textarea name="secret" placeholder="Enter secret message"></textarea><br>
+
+        <input type="password" name="password" placeholder="Enter password"><br>
+
+        <button name="hide">Hide Message</button>
+        <button name="extract">Extract Message</button>
+    </form>
+
+    <div id="messageBox" class="message">{{ message }}</div>
+
+<script>
+    setTimeout(function() {
+        let msg = document.getElementById("messageBox");
+        if (msg) {
+            msg.style.opacity = "0";
+        }
+    }, 4000);
+
+    setTimeout(function() {
+        let msg = document.getElementById("messageBox");
+        if (msg) {
+            msg.style.display = "none";
+        }
+    }, 5000);
+</script>
+</div>
+
+</body>
+</html>
